@@ -1,0 +1,89 @@
+body{
+    background-color: #242a69;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header{
+    grid-area: myHeader;
+    text-transform: capitalize;
+    border: solid black 3px;
+}
+
+
+header, button{
+    background-color: #6caccb;
+    color: black;
+}
+
+button:hover{
+    color: #d7bd84;
+}
+
+.mymenu{
+    grid-area: myMenu;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    
+}
+
+.mymenu > button{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 30px;
+    text-transform: lowercase;
+    font-size: medium;
+    border-radius:5px;
+}
+
+nav{
+    position: sticky;
+    top:0;
+    width: 85%;
+    margin: auto;
+}
+
+.thepage{
+    grid-area: myMain;
+    width: 90%
+}
+
+footer{
+    grid-area: myFooter;
+}
+
+#mainheader, #changeStyle{
+    color: black;
+}
+
+p, h2, figcaption{
+    color: #d7bd84;
+}
+
+a, a:visited{
+    color: #6caccb;
+}
+
+@media only screen and (max-width: 1050px) {
+    #makeMenuOnSide{
+        flex-direction: column;
+    }
+    .mymenu{
+        width: 90%;
+        padding: 10px;
+    }
+    .picGroup{
+        flex-wrap: wrap;
+    }
+    .picGroup > img{
+        border-radius: 5%;
+        max-width: 15%;
+        height: auto;
+        min-width: 10%;
+}
+
+@media only screen and (max-width: 711px){
+    nav{
+        width: 100%;
+    }
+}
+}

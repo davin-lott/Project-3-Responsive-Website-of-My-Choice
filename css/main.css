@@ -1,0 +1,187 @@
+body{
+    background-color: #6caccb;
+}
+
+h2{
+    font-size: x-large;
+}
+
+footer{
+    display: grid;
+    background-color: #eacf88;
+    height: 75px;
+    text-align: center;
+    align-items: center;
+}
+
+a:visited{
+    color: blue
+}
+
+header{
+    width:90%;
+    height: 100px; 
+    display: grid;
+    grid-template-columns: repeat(3,33.3%);
+    background-color: #242a69;
+    margin: auto;
+
+}
+
+header > img {
+    height: 33.3%;
+    justify-self:start;
+    grid-column-start:1;
+}
+
+#mainheader{
+    color: #d7bd84;
+    font-size: xx-large;
+    grid-column-start: 2;
+    justify-self: center;
+     
+}
+
+.mymenu{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 90%;
+    column-gap: 10px;
+    margin: auto;
+}
+
+button{
+    background-color: #242a69;
+    color: #d7bd84;
+}
+
+button:hover{
+    background-color: #2e3688;
+}
+
+.mainpage > p{
+    width: 75%;
+    margin: auto;
+}
+
+.mainpage > img{
+    width: 400px;
+    height: auto;
+}
+
+.thepage{
+    display: grid;
+    width:90%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin:auto;
+    height: 750px;
+    justify-content: center;
+}
+
+.contactpage{
+    display: grid;
+    align-items: center;
+}
+
+#additionalinfo{
+    padding: 10px;
+}
+
+.mainpage, .contactpage, .questionpage{
+    width:auto;
+    display: grid;
+    text-align: center;
+    justify-items: center;
+    align-content: space-around;
+}
+
+.contactpage, .questionpage{
+    display:none; /*Turns off the display of both the contact and question part of the page*/
+}
+
+#cruisepicture{
+    max-width: 30%;
+    height: auto;
+}
+
+.picGroup > img{
+    border-radius: 5%;
+    max-width: 15%;
+    height: auto;
+}
+
+.picGroup{
+    display:flex;
+    justify-content: space-around;
+    width: 95%;
+    gap: 10px;
+    margin: 5px;
+}
+
+#changeStyle{
+    display: flex;
+    text-wrap: wrap;
+    color: #d7bd84;
+    position: absolute;
+    left: 83%;
+    top: 3%;
+    padding: 20px;
+    width: 8%;
+}
+
+/*I made the max-width these specific px because that was where exactly it was messing with my header*/
+@media only screen and (max-width: 832px){
+    #mainheader{
+        font-size: x-large;
+    }
+    #youtubevid{
+        width: 80%;
+        height: auto;
+    }
+    #cruisepicture{
+        max-width: 80%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 711px){
+    #changeStyle{
+        top:0%;
+        left:23%
+    }
+}
+
+@media only screen and (max-width: 628px) {
+    #mainheader{
+        font-size: x-large;
+        grid-column-start: 3;
+        justify-self: right;
+    }
+    .mymenu{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    button{
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #changeStyle{
+        top:0%;
+        left:40%
+    }
+}
+
+@media only screen and (max-width: 475px){
+    #mainheader{
+        font-size: x-large;
+        justify-self:center;
+    }
+    button{
+        height: 30px;
+    }
+}
