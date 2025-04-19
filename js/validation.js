@@ -6,7 +6,7 @@ let acceptableStates = [
     'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'
   ]
 
-class FormPiece{
+class FormPiece{ //this is a class for making eventlisteners and other stuff easier
     constructor(elementID, theErrorID){
         this.itself = document.getElementById(elementID)
         this.inputValue = this.itself.value
@@ -15,7 +15,7 @@ class FormPiece{
     }
 }
 
-function validate() {
+function initValidation() {
     let errorMessage = document.getElementById("errorMessage")
     errorMessage.style.display = "none"
 
@@ -25,17 +25,23 @@ function validate() {
     let city = new FormPiece("city", "cityError")
     let state = new FormPiece("state", "emptyState")
     state.itself.addEventListener("focusin", errorOff("wrongState"))
+    
     let zip = new FormPiece("zip", "emptyZip")
     zip.itself.addEventListener("focusin", errorOff("invalidNumber"))
     zip.inputValue = Number(zip.inputValue)
+    
     let phoneNumber = new FormPiece("phoneNumber", "emptyPhone")
     phoneNumber.itself.addEventListener("focusin", errorOff("impossiblePhone"))
+    
     let cellRe = /\(?\d{3}\)?-?\d{3}-?\d{4}/
     let email = new FormPiece("daEmail", "emptyEmail")
     email.itself.addEventListener("focusin", errorOff("notEmail"))
     let gmailRe = /.+\@.+\..+/
+    
     let found = new FormPiece("found", "noSelect")
-
+    
+    //Code below checks the form one by one for different things and 
+    //flags stuff when an error occurs
     if (firstName.inputValue == ""){
         whenEmpty("First Name Is Required", "firstError")
     } else if (lastName.inputValue == ""){
@@ -73,11 +79,15 @@ function validate() {
     }
 }
 
+//function below turns off the errors when they are no longer needed
 function errorOff(errorId){
     let toTurnOff = document.getElementById(errorId)
     toTurnOff.style.display = "none"
 }
 
+
+//function below turns on whatever error message that the initValidation
+//function tells it to
 function whenEmpty(errorStr, errorId){
     errorMessage.innerHTML = errorStr
     let errorParagraph = document.getElementById(errorId)

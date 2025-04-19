@@ -7,7 +7,8 @@ VALIDATION LIBRARY        B
 FLEXBOX LAYOUT/FORM HTML  B
 
 --EXTRA CREDIT COMPLETED--
-FORM MOBILE RESPONSIVE (3pts)    NO, but it is responsive from the last assignment
+FORM MOBILE RESPONSIVE (3pts)    NO, but it is responsive from the last assignment.
+
 ADDITIONAL COMMENTS
 This was a satisfying project to work on. It was nice for it to be more Javascript
 and less HTML and CSS. 
@@ -18,6 +19,10 @@ the validation and inputs worked.
 I wasn't sure exactly how to validate an email, so I just said that if it had at least
 one character before the "@" sign, at least one character before the ".", and at least
 one character after the period then it would count it as a valid email.
+
+I changed a couple of things in the form from the example that was provided for us. I
+thought that making a dropdown selection would be better than a checkbox. There are some 
+other things I changed, but it works how the project should.
 --> 
 
 
@@ -132,7 +137,7 @@ one character after the period then it would count it as a valid email.
             <p class="wrongInput" id="noSelect" class="fillOut">Select how you found this site</p>
             <label for="commentBox" class="fillOut">Comments</label>
             <textarea rows="4" cols="40" placeholder="Write here." name="commentBox" id="commentBox" class="fillOut"></textarea>
-            <button id="submitBtn" type='button' onclick="validate()" class="fillOut">Send</button> <!--Set as button type to validate once submitted-->
+            <button id="submitBtn" type='button' onclick="initValidation()" class="fillOut">Send</button> <!--Set as button type to validate once submitted-->
             <p id="errorMessage" class="fillOut"></p>
             <h2 id="thankYou"></h2>
 
