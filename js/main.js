@@ -1,6 +1,6 @@
-//DISCLAIMER: I wrote all of my own code
 
-/*
+/* DISCLAIMER: I wrote all of my own code
+
 CHANGES MADE TO THIS PROJECT
 
 There were no notes for me to improve the javascript for this website from 
@@ -19,7 +19,6 @@ pages. I don't think that I would have anything left for my main.js file if I di
 that and had a seperate file for the validation. So, I decided to keep my page 
 switching Javascript on my main.js file. I hope this is okay. It seems like making 
 a seperate page file for the Javascript was a suggestion, not a requirement
-
 */
 
 
@@ -58,16 +57,25 @@ function clickedThis(daClassName){
         changeDisplayOn("mainpage", "grid")
         changeDisplayOff("contactpage")
         changeDisplayOff("questionpage")
+        changeDisplayOff("visitorForm")
     }
     if(daClassName == "contactpage" ){
         changeDisplayOff("mainpage")
         changeDisplayOn("contactpage", "grid")
         changeDisplayOff("questionpage")
+        changeDisplayOff("visitorForm")
     }
     if(daClassName == "questionpage"){
         changeDisplayOff("mainpage")
         changeDisplayOff("contactpage")
         changeDisplayOn("questionpage", "grid")
+        changeDisplayOff("visitorForm")
+    }
+    if(daClassName == "visitorForm"){
+        changeDisplayOff("mainpage")
+        changeDisplayOff("contactpage")
+        changeDisplayOff("questionpage")
+        changeDisplayOn("visitorForm", "flex")
     }
 }
 
@@ -83,4 +91,6 @@ function clickquestion(){
     clickedThis("questionpage")
 }
 
-
+function clickVisitor(){
+    clickedThis("visitorForm")
+}

@@ -2,40 +2,30 @@
 <html>
 <!--
 --SELF GRADE--
-REFACTOR CSS-FIX       A
-CSS THEME              B
-CSS THEME TOGGLE     A
-MOBILE RESPONSIVE    B
+REFACTOR JS               A
+VALIDATION LIBRARY        B
+FLEXBOX LAYOUT/FORM HTML  B
 
+--EXTRA CREDIT COMPLETED--
+FORM MOBILE RESPONSIVE (3pts)    NO, but it is responsive from the last assignment
 ADDITIONAL COMMENTS
-To be honest, I tried really hard to get things to look good,
-but I just couldn't figure it out. I wanted to add a sticky feature
-to the menu buttons on the side, but they wouldn't go all they way 
-down, so I just laid them on top of each other for making them 
-different. Overall, I can honestly say I tried my best, but I don't
-know how much more I could have done without just making an entirely 
-new project.
+This was a satisfying project to work on. It was nice for it to be more Javascript
+and less HTML and CSS. 
 
-I also did change the font for this, as well as I made the buttons for my menu
-rounded just a bit to make them even more different. 
+I wish I had more time to make some of the things look better, but I made sure that 
+the validation and inputs worked.
 
-Another thing I aded for this project is made the header capitalize when it switches
-styles, unlike how it was before, and made the buttons lowercase, where before they 
-were uppercase.
-
-Along with the header, I added a border around the heading, just to make it more different.
-
-Again, sorry it isn't more changed with Flex and Grid. I really tried, but I couldn't make 
-it look how I wanted, or good. I did stack the buttons instead of having them next to each 
-other, but that is as successful as I could make it.
-
+I wasn't sure exactly how to validate an email, so I just said that if it had at least
+one character before the "@" sign, at least one character before the ".", and at least
+one character after the period then it would count it as a valid email.
 --> 
 
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
-        <script src="main.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/validation.js"></script>
     </head>
 
     <body>
@@ -50,6 +40,7 @@ other, but that is as successful as I could make it.
                 <button id="homebutton" onclick="clickmain()">HOME </button>
                 <button id="contactbutton" onclick="clickcontact()"> CONTACT</button>
                 <button id="?button" onclick="clickquestion()">MORE INFO</button>
+                <button id="visitor-form" onclick="clickVisitor()">LOG VISIT</button>
             </div> 
             </nav>
         </section>
@@ -76,8 +67,6 @@ other, but that is as successful as I could make it.
                 </div>
             </div>
         
-        
-        
             <div class="contactpage">
                 <h2>My Contact Info</h2>
                 <figure>
@@ -88,7 +77,6 @@ other, but that is as successful as I could make it.
                 <p id="myInsta"><strong>Instagram:</strong> @davinjuggles</p>
             </div>
         
-
         <div class="questionpage">
             <h2 id="questionHeader"><u>More Information</u></h2>
             <p id="additionalinfo">If you want to get into Lorcana, I would suggest starting with a starter deck, which is a 
@@ -101,6 +89,55 @@ other, but that is as successful as I could make it.
                 <iframe id="youtubevid" src="https://www.youtube.com/embed/1FgwKHzE0w8?si=s20M8FRY8cqxN5ka" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <figcaption>A video breaking down each color in Lorcana</figcaption>
             </figure>
+        </div>
+
+        <div class="visitorForm">
+            <h2 class="fillOut">Visitor Form</h2>
+            <label for="first-name" class="fillOut">First Name</label>
+            <input type="text" placeholder="Mirabel" id="first-name" name="first-name" class="fillOut">
+            <p class="wrongInput" id="firstError" class="fillOut">First name required</p>
+            <label for="last-name" class="fillOut">Last Name</label>
+            <input type="text" placeholder="Madrigal" id="last-name" name="last-name" class="fillOut">
+            <p class="wrongInput" id="lastError" class="fillOut">Last name required</p>
+            <label for="userAddress" class="fillOut">Address</label>
+            <input type="text" placeholder="123 Casa Madrigal" id="userAddress" name="userAddress" class="fillOut">
+            <p class="wrongInput" id="addressError" class="fillOut">Address required</p>
+            <label for="city" class="fillOut">City</label>
+            <input type="text" placeholder="Encanto" id="city" name="city" class="fillOut">
+            <p class="wrongInput" id="cityError" class="fillOut">City required</p>
+            <label for="state" class="fillOut">State</label>
+            <input type="text" placeholder="DC" id="state" name="state" class="fillOut">
+            <p class="wrongInput" id="emptyState" class="fillOut">State required</p>
+            <p class="wrongInput" id="wrongState" class="fillOut">Two letter abbreviation required</p>
+            <label for="zip" class="fillOut">Zip</label>
+            <input type="number" placeholder="46725" id="zip" name="zip" class="fillOut">
+            <p class="wrongInput" id="emptyZip" class="fillOut">Zip required</p>
+            <p class="wrongInput" id="invalidNumber" class="fillOut">Invalid Zip</p>
+            <label for="phoneNumber" class="fillOut">Phone number</label>
+            <input type="text" placeholder="555-123-4567" id="phoneNumber" name="phoneNumber" class="fillOut">
+            <p class="wrongInput" id="emptyPhone" class="fillOut">Phone number required</p>
+            <p class="wrongInput" id="impossiblePhone" class="fillOut">Please enter valid phone number</p>
+            <label for="daEmail" class="fillOut">Email</label>
+            <input type="text" placeholder="mirabel@madrigal.com" id="daEmail" name="daEmail" class="fillOut">
+            <p class="wrongInput" id="emptyEmail" class="fillOut">Email required</p>
+            <p class="wrongInput" id="notEmail" class="fillOut">Please enter valid email</p>
+            <label for="found" class="fillOut">How did you find this page?</label>
+            <select id="found" name="found" class="fillOut">
+                <option value="default" id="defaultSelect">Pick one</option>
+                <option value="internet">Internet</option>
+                <option value="friend">Friend</option>
+                <option value="social">Social Media</option>
+                <option>Other(Please write in comments)</option>
+            </select>
+            <p class="wrongInput" id="noSelect" class="fillOut">Select how you found this site</p>
+            <label for="commentBox" class="fillOut">Comments</label>
+            <textarea rows="4" cols="40" placeholder="Write here." name="commentBox" id="commentBox" class="fillOut"></textarea>
+            <button id="submitBtn" type='button' onclick="validate()" class="fillOut">Send</button> <!--Set as button type to validate once submitted-->
+            <p id="errorMessage" class="fillOut"></p>
+            <h2 id="thankYou"></h2>
+
+
+
         </div>
         </section>
         <section>

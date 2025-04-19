@@ -55,12 +55,16 @@ footer{
     color: black;
 }
 
-p, h2, figcaption{
+p, h2, figcaption, label{
     color: #d7bd84;
 }
 
 a, a:visited{
     color: #6caccb;
+}
+
+.wrongInput, #errorMessage{
+    color: yellow;
 }
 
 @media only screen and (max-width: 1050px) {
